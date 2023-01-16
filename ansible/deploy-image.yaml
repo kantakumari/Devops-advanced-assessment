@@ -23,4 +23,4 @@
       register: result
       until: "result.status == 200"
       retries: 5
-      delay: 5
+      delay: 10
