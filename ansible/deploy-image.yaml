@@ -1,0 +1,26 @@
+---
+- name: Deploy docker image
+  hosts: all
+  become: true
+  tasks:
+    - name: Login to dockerhub
+      docker_login:
+        username: kkanta2609
+        password: Kaavya@321
+        reauthorize: yes
+    - name: Run docker container
+      docker_container:
+        name: node-app
+        image: kkanta2609/node-app:latest
+        state: started
+        pull: true
+        ports:
+        - "3000:3000"
+    - name: Connect and check status
+      tags: test
+      url:
+        url: http://localhost:3000
+      register: result
+      until: "result.status == 200"
+      retries: 5
+      delay: 5
