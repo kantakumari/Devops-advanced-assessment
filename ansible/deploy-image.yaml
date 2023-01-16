@@ -2,13 +2,11 @@
 - name: Deploy docker image
   hosts: all
   become: true
-  vars_file:
-    - credentials.yaml
   tasks:
     - name: Login to dockerhub
       docker_login:
-        username: "{{ username }}"
-        password: "{{ password }}"
+        username: kkanta2609
+        password: Kaavya@321
         reauthorize: yes
     - name: Run docker container
       docker_container:
