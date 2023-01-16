@@ -18,7 +18,7 @@
         - "3000:3000"
     - name: Connect and check status
       tags: test
-      url:
+      uri:
         url: http://localhost:3000
       register: result
       until: "result.status == 200"
