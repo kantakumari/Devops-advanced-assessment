@@ -11,7 +11,7 @@
     - name: Run docker container
       docker_container:
         name: node-app
-        image: kkanta2609/node-app:1.0.0
+        image: kkanta2609/node-app-new:latest
         state: started
         pull: true
         ports:
